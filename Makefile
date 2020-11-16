@@ -8,6 +8,10 @@ PIP := $(BIN)/pip
 PYTHON := $(BIN)/python
 PRE_COMMIT := $(BIN)/pre-commit
 
+
+run:
+	$(PYTHON) $(SCRIPTS)/main.py
+
 bootstrap: venv \
 	requirements \
 	pre-commit-hooks

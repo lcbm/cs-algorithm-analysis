@@ -8,6 +8,7 @@
   - [Tempo de Execução](#tempo-de-execução)
   - [Análise](#análise)
 - [Installation and Usage](#installation-and-usage)
+  - [System Installation and Usage](#system-installation-and-usage)
   - [Docker Installation and Usage](#docker-installation-and-usage)
 - [Contributing](#contributing)
 - [LICENSE](#license)
@@ -62,7 +63,46 @@ Para cada algoritmo implementado o aluno deve escrever uma análise da complexid
 
 O aluno também deve gerar entradas adicionais com os números organizados de forma a simular o pior e o melhor caso e gerar novos gráficos comparativos em relação ao tempo utilizado para ordenação!
 
-## Docker Installation and Usage
+## Installation and Usage
+
+To proceed with a system installation, go to the [System Installation and Usage section](#system-installation-and-usage). Otherwise, if you rather use [Docker](https://www.docker.com), please refer to the [Docker Installation and Usage section](#docker-installation-and-usage).
+
+### System Installation and Usage
+
+To install the **project's system installation pre-requisites**, please follow the instructions in the links below:
+
+- [Python 3.8](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/)
+
+#### Installing dependencies
+
+First, change your current working directory to the project's root directory and bootstrap the project:
+
+```bash
+# change current working directory
+$ cd <path/to/cs-algorithm-analysis>
+
+# install project dependencies
+$ make bootstrap
+```
+
+>_**Note**: this command installs dependencies with [venv](https://docs.python.org/3/tutorial/venv.html#creating-virtual-environments). This module creates and manages virtual environments -- meaning that it will work isolated from your global Python installation._
+
+#### Running
+
+In order to run the application, use the following command:
+
+```bash
+# runs the application using makefile and venv
+$ make run
+# or '$ ./venv/bin/python3 scripts/main.py'
+```
+
+>_**Note**: this command will run different sorting algorithms for various input files. This make take a while, so you might want to grab a coffee in the meantime!_
+
+Finally, an image with the sorting analysis will be saved in `path/to/cs-algorithm-analysis/figures`.
+
+### Docker Installation and Usage
 
 To install the **project's Docker installation pre-requisites**, please follow the instructions in the link below:
 
@@ -71,25 +111,22 @@ To install the **project's Docker installation pre-requisites**, please follow t
 
 > _**Note**: if you're using a Linux system, please take a look at [Docker's post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/)!_
 
-### Building the container
+#### Building the container
 
 Once you have `Docker` and `Docker-compose`, change your current working directory to this repository then build and run the container:
 
 ```bash
-# change current working directory
-$ cd <path/to/cs-algorithm-analysis>
-
 # start the container in the background of your terminal
 $ docker-compose up --detach
 ```
 
 At this point, [Jupyter Notebook](https://jupyter.org) will be running at: `http://localhost:8888`
 
-### Installing new packages
+#### Installing new packages
 
 There are a few ways you may install packages to the container. It'll depend on your goal and needs.
 
-#### Pip
+##### Pip
 
 If you need to do update or add packages via `pip`, execute the following command **inside your jupyter notebook**:
 
@@ -102,7 +139,7 @@ import sys
 
 > _**note**_: the `!` notation is used to run `pip` directly as a shell command from the notebook. Also, take a look [here](https://jakevdp.github.io/blog/2017/12/05/installing-python-packages-from-jupyter/) to see why you should NOT use `!pip install <package>`.
 
-#### Conda
+##### Conda
 
 If you need to do update or add packages via `conda`, execute the following command **inside your jupyter notebook**:
 
@@ -115,7 +152,7 @@ import sys
 
 > _**note**_: the `!` notation is used to run `conda` directly as a shell command from the notebook. Also, take a look [here](https://jakevdp.github.io/blog/2017/12/05/installing-python-packages-from-jupyter/) to see why you should NOT use `!conda install --yes <package>`.
 
-#### System
+##### System
 
 To add or update system packages, you will need `root` user permissions. To achieve this, use the following command:
 
