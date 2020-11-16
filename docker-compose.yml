@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  scipy-notebook:
+    image: jupyter/scipy-notebook
+    hostname: scipy_notebook
+    container_name: scipy_notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan/work
+    command: "start-notebook.sh \
+      --NotebookApp.token=''"
+
+volumes:
+  scipy-notebook: ~
